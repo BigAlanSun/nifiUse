@@ -1,0 +1,727 @@
+<?xml version="1.0" ?>
+<template encoding-version="1.1">
+  <description>this demo about : 
+1.publish message to mqtt server
+2. consumer mqtt to Hdfs
+</description>
+  <groupId>7c84501d-d10c-407c-b9f3-1d80e38fe36a</groupId>
+  <name>mqttToHdfsDemo</name>
+  <snippet>
+    <connections>
+      <id>8d532ca6-b307-353c-0000-000000000000</id>
+      <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>46f95fe5-3024-31d8-0000-000000000000</groupId>
+        <id>ec050d2c-ad49-3c03-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>Message</selectedRelationships>
+      <source>
+        <groupId>46f95fe5-3024-31d8-0000-000000000000</groupId>
+        <id>896e0d88-e1c8-3f72-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <connections>
+      <id>38fdae3b-583c-3c14-0000-000000000000</id>
+      <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+      <backPressureDataSizeThreshold>1 GB</backPressureDataSizeThreshold>
+      <backPressureObjectThreshold>10000</backPressureObjectThreshold>
+      <destination>
+        <groupId>46f95fe5-3024-31d8-0000-000000000000</groupId>
+        <id>04bccdf0-a330-3611-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </destination>
+      <flowFileExpiration>0 sec</flowFileExpiration>
+      <labelIndex>1</labelIndex>
+      <name></name>
+      <selectedRelationships>success</selectedRelationships>
+      <source>
+        <groupId>46f95fe5-3024-31d8-0000-000000000000</groupId>
+        <id>e24fedad-30c0-3dc4-0000-000000000000</id>
+        <type>PROCESSOR</type>
+      </source>
+      <zIndex>0</zIndex>
+    </connections>
+    <labels>
+      <id>86adcc72-ddb9-3a48-0000-000000000000</id>
+      <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+      <position>
+        <x>854.3539804269767</x>
+        <y>59.871520475850446</y>
+      </position>
+      <height>171.0</height>
+      <label>2.2.3 CRF 产品 NiFi测试
+  2.2.3.1 NiFi 功能列表  
+		2.2.3.2 MYSQL CDC 测试                     完成
+		2.2.3.3 NIFI Kafka测试
+		2.2.3.4 NIFI MQTT 测试                        完成
+		2.2.3.5 NIFI HDFS 测试
+		2.2.3.6 NIFI HBASE 测试
+		2.2.3.7 NIFI HIVE 测试
+		2.2.3.8 NIFI FTP 测试
+		2.2.3.9 NIFI 监控HTTP输入 测试         完成 
+		2.2.3.10 所有测试项输出文档 </label>
+      <style>
+        <entry>
+          <key>font-size</key>
+          <value>12px</value>
+        </entry>
+      </style>
+      <width>329.0</width>
+    </labels>
+    <processors>
+      <id>896e0d88-e1c8-3f72-0000-000000000000</id>
+      <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+      <position>
+        <x>390.11528641301595</x>
+        <y>3.1075979871297363</y>
+      </position>
+      <bundle>
+        <artifact>nifi-mqtt-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Broker URI</key>
+            <value>
+              <name>Broker URI</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Client ID</key>
+            <value>
+              <name>Client ID</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>
+              <name>Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>
+              <name>Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+              <name>SSL Context Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Topic</key>
+            <value>
+              <name>Last Will Topic</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Message</key>
+            <value>
+              <name>Last Will Message</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Retain</key>
+            <value>
+              <name>Last Will Retain</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will QoS Level</key>
+            <value>
+              <name>Last Will QoS Level</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Session state</key>
+            <value>
+              <name>Session state</name>
+            </value>
+          </entry>
+          <entry>
+            <key>MQTT Specification Version</key>
+            <value>
+              <name>MQTT Specification Version</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Timeout (seconds)</key>
+            <value>
+              <name>Connection Timeout (seconds)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Keep Alive Interval (seconds)</key>
+            <value>
+              <name>Keep Alive Interval (seconds)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Topic Filter</key>
+            <value>
+              <name>Topic Filter</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Quality of Service(QoS)</key>
+            <value>
+              <name>Quality of Service(QoS)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Max Queue Size</key>
+            <value>
+              <name>Max Queue Size</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Broker URI</key>
+            <value>tcp://192.168.0.65:61613</value>
+          </entry>
+          <entry>
+            <key>Client ID</key>
+            <value>dsagsdgfqw3eft34214</value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>admin</value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>password</value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+          </entry>
+          <entry>
+            <key>Last Will Topic</key>
+          </entry>
+          <entry>
+            <key>Last Will Message</key>
+          </entry>
+          <entry>
+            <key>Last Will Retain</key>
+          </entry>
+          <entry>
+            <key>Last Will QoS Level</key>
+          </entry>
+          <entry>
+            <key>Session state</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>MQTT Specification Version</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Connection Timeout (seconds)</key>
+            <value>30</value>
+          </entry>
+          <entry>
+            <key>Keep Alive Interval (seconds)</key>
+            <value>60</value>
+          </entry>
+          <entry>
+            <key>Topic Filter</key>
+            <value>test</value>
+          </entry>
+          <entry>
+            <key>Quality of Service(QoS)</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Max Queue Size</key>
+            <value>1024</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>ConsumeMQTT</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>Message</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.mqtt.ConsumeMQTT</type>
+    </processors>
+    <processors>
+      <id>e24fedad-30c0-3dc4-0000-000000000000</id>
+      <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+      <position>
+        <x>0.0</x>
+        <y>0.0</y>
+      </position>
+      <bundle>
+        <artifact>nifi-standard-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>File Size</key>
+            <value>
+              <name>File Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Batch Size</key>
+            <value>
+              <name>Batch Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Data Format</key>
+            <value>
+              <name>Data Format</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Unique FlowFiles</key>
+            <value>
+              <name>Unique FlowFiles</name>
+            </value>
+          </entry>
+          <entry>
+            <key>generate-ff-custom-text</key>
+            <value>
+              <name>generate-ff-custom-text</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>File Size</key>
+            <value>1B</value>
+          </entry>
+          <entry>
+            <key>Batch Size</key>
+            <value>1</value>
+          </entry>
+          <entry>
+            <key>Data Format</key>
+            <value>Text</value>
+          </entry>
+          <entry>
+            <key>Unique FlowFiles</key>
+            <value>false</value>
+          </entry>
+          <entry>
+            <key>generate-ff-custom-text</key>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>10 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>GenerateFlowFile</name>
+      <relationships>
+        <autoTerminate>false</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.standard.GenerateFlowFile</type>
+    </processors>
+    <processors>
+      <id>ec050d2c-ad49-3c03-0000-000000000000</id>
+      <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+      <position>
+        <x>387.2916627557894</x>
+        <y>218.63672701545005</y>
+      </position>
+      <bundle>
+        <artifact>nifi-hadoop-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Hadoop Configuration Resources</key>
+            <value>
+              <name>Hadoop Configuration Resources</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Principal</key>
+            <value>
+              <name>Kerberos Principal</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Keytab</key>
+            <value>
+              <name>Kerberos Keytab</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Kerberos Relogin Period</key>
+            <value>
+              <name>Kerberos Relogin Period</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Additional Classpath Resources</key>
+            <value>
+              <name>Additional Classpath Resources</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Directory</key>
+            <value>
+              <name>Directory</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>
+              <name>Conflict Resolution Strategy</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Block Size</key>
+            <value>
+              <name>Block Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>IO Buffer Size</key>
+            <value>
+              <name>IO Buffer Size</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Replication</key>
+            <value>
+              <name>Replication</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Permissions umask</key>
+            <value>
+              <name>Permissions umask</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote Owner</key>
+            <value>
+              <name>Remote Owner</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Remote Group</key>
+            <value>
+              <name>Remote Group</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Compression codec</key>
+            <value>
+              <name>Compression codec</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Hadoop Configuration Resources</key>
+            <value>/opt/hadoop/core-site.xml,/opt/hadoop/hdfs-site.xml</value>
+          </entry>
+          <entry>
+            <key>Kerberos Principal</key>
+          </entry>
+          <entry>
+            <key>Kerberos Keytab</key>
+          </entry>
+          <entry>
+            <key>Kerberos Relogin Period</key>
+            <value>4 hours</value>
+          </entry>
+          <entry>
+            <key>Additional Classpath Resources</key>
+          </entry>
+          <entry>
+            <key>Directory</key>
+            <value>/nifimqtt</value>
+          </entry>
+          <entry>
+            <key>Conflict Resolution Strategy</key>
+            <value>replace</value>
+          </entry>
+          <entry>
+            <key>Block Size</key>
+          </entry>
+          <entry>
+            <key>IO Buffer Size</key>
+          </entry>
+          <entry>
+            <key>Replication</key>
+          </entry>
+          <entry>
+            <key>Permissions umask</key>
+          </entry>
+          <entry>
+            <key>Remote Owner</key>
+            <value>hdfs</value>
+          </entry>
+          <entry>
+            <key>Remote Group</key>
+            <value>hdfs</value>
+          </entry>
+          <entry>
+            <key>Compression codec</key>
+            <value>NONE</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>2sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PutHDFS</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.hadoop.PutHDFS</type>
+    </processors>
+    <processors>
+      <id>04bccdf0-a330-3611-0000-000000000000</id>
+      <parentGroupId>46f95fe5-3024-31d8-0000-000000000000</parentGroupId>
+      <position>
+        <x>1.4424209594726562</x>
+        <y>218.02642822265625</y>
+      </position>
+      <bundle>
+        <artifact>nifi-mqtt-nar</artifact>
+        <group>org.apache.nifi</group>
+        <version>1.2.0</version>
+      </bundle>
+      <config>
+        <bulletinLevel>WARN</bulletinLevel>
+        <comments></comments>
+        <concurrentlySchedulableTaskCount>1</concurrentlySchedulableTaskCount>
+        <descriptors>
+          <entry>
+            <key>Broker URI</key>
+            <value>
+              <name>Broker URI</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Client ID</key>
+            <value>
+              <name>Client ID</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>
+              <name>Username</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>
+              <name>Password</name>
+            </value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+            <value>
+              <identifiesControllerService>org.apache.nifi.ssl.SSLContextService</identifiesControllerService>
+              <name>SSL Context Service</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Topic</key>
+            <value>
+              <name>Last Will Topic</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Message</key>
+            <value>
+              <name>Last Will Message</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will Retain</key>
+            <value>
+              <name>Last Will Retain</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Last Will QoS Level</key>
+            <value>
+              <name>Last Will QoS Level</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Session state</key>
+            <value>
+              <name>Session state</name>
+            </value>
+          </entry>
+          <entry>
+            <key>MQTT Specification Version</key>
+            <value>
+              <name>MQTT Specification Version</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Connection Timeout (seconds)</key>
+            <value>
+              <name>Connection Timeout (seconds)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Keep Alive Interval (seconds)</key>
+            <value>
+              <name>Keep Alive Interval (seconds)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Topic</key>
+            <value>
+              <name>Topic</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Quality of Service(QoS)</key>
+            <value>
+              <name>Quality of Service(QoS)</name>
+            </value>
+          </entry>
+          <entry>
+            <key>Retain Message</key>
+            <value>
+              <name>Retain Message</name>
+            </value>
+          </entry>
+        </descriptors>
+        <executionNode>ALL</executionNode>
+        <lossTolerant>false</lossTolerant>
+        <penaltyDuration>30 sec</penaltyDuration>
+        <properties>
+          <entry>
+            <key>Broker URI</key>
+            <value>tcp://192.168.0.65:61613</value>
+          </entry>
+          <entry>
+            <key>Client ID</key>
+            <value>qwdsafcavfv2323</value>
+          </entry>
+          <entry>
+            <key>Username</key>
+            <value>admin</value>
+          </entry>
+          <entry>
+            <key>Password</key>
+            <value>password</value>
+          </entry>
+          <entry>
+            <key>SSL Context Service</key>
+          </entry>
+          <entry>
+            <key>Last Will Topic</key>
+          </entry>
+          <entry>
+            <key>Last Will Message</key>
+          </entry>
+          <entry>
+            <key>Last Will Retain</key>
+          </entry>
+          <entry>
+            <key>Last Will QoS Level</key>
+          </entry>
+          <entry>
+            <key>Session state</key>
+            <value>true</value>
+          </entry>
+          <entry>
+            <key>MQTT Specification Version</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Connection Timeout (seconds)</key>
+            <value>30</value>
+          </entry>
+          <entry>
+            <key>Keep Alive Interval (seconds)</key>
+            <value>60</value>
+          </entry>
+          <entry>
+            <key>Topic</key>
+            <value>test</value>
+          </entry>
+          <entry>
+            <key>Quality of Service(QoS)</key>
+            <value>0</value>
+          </entry>
+          <entry>
+            <key>Retain Message</key>
+            <value>true</value>
+          </entry>
+        </properties>
+        <runDurationMillis>0</runDurationMillis>
+        <schedulingPeriod>0 sec</schedulingPeriod>
+        <schedulingStrategy>TIMER_DRIVEN</schedulingStrategy>
+        <yieldDuration>1 sec</yieldDuration>
+      </config>
+      <name>PublishMQTT</name>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>failure</name>
+      </relationships>
+      <relationships>
+        <autoTerminate>true</autoTerminate>
+        <name>success</name>
+      </relationships>
+      <style></style>
+      <type>org.apache.nifi.processors.mqtt.PublishMQTT</type>
+    </processors>
+  </snippet>
+  <timestamp>04/17/2018 09:35:26 CST</timestamp>
+</template>
